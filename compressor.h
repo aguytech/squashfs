@@ -59,11 +59,14 @@ static inline int compressor_compress(struct compressor *comp, void *strm,
 }
 
 
+/* CJH: Needed more logic for compression auto-detection, no longer inlined
 static inline int compressor_uncompress(struct compressor *comp, void *dest,
 	void *src, int size, int block_size, int *error)
 {
 	return comp->uncompress(dest, src, size, block_size, error);
 }
+*/
+int compressor_uncompress(struct compressor *comp, void *dest, void *src, int size, int block_size, int *error);
 
 
 /*

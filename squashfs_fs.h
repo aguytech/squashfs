@@ -277,6 +277,22 @@ typedef long long		squashfs_inode;
 #define LZO_COMPRESSION		3
 #define XZ_COMPRESSION		4
 #define LZ4_COMPRESSION		5
+// CJH: Added #defines for additional decompressors
+#define LZMA_WRT_COMPRESSION        6
+#define LZMA_ADAPTIVE_COMPRESSION   7
+#define LZMA_ALT_COMPRESSION        8
+
+// CJH: A generic super block structure used for auto-detecting endianess
+#include <stdint.h>
+#define SQUASHFS_MIN_VERSION 1
+#define SQUASHFS_MAX_VERSION 4
+struct squashfs_generic_super_block {
+    uint32_t s_magic;
+    uint32_t inodes;
+    uint8_t  filler[20];
+    uint16_t s_major;
+    uint16_t s_minor;
+} __attribute__ ((packed));
 
 struct squashfs_super_block {
 	unsigned int		s_magic;
@@ -486,6 +502,23 @@ struct squashfs_xattr_table {
 	long long		xattr_table_start;
 	unsigned int		xattr_ids;
 	unsigned int		unused;
+};
+
+// CJH: Override structures (see usage)
+struct lzma_override_property
+{
+    int set;
+    int value;
+};
+struct override_table
+{
+    int s_major;
+    int s_minor;
+    struct lzma_override_property lc;
+    struct lzma_override_property lp;
+    struct lzma_override_property pb;
+    struct lzma_override_property dictionary_size;
+    struct lzma_override_property offset;
 };
 
 #endif

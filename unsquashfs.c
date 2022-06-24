@@ -1833,6 +1833,8 @@ int read_super(char *source)
 
     // CJH: Notify if endianess is different
     if(swap)
+        
+        {
         ERROR("Reading a different endian SQUASHFS filesystem on %s\n", source);
 
 	/*
@@ -1843,7 +1845,7 @@ int read_super(char *source)
 	// CJH: swap detection already done generically above
     //swap = sBlk_4.s_magic != SQUASHFS_MAGIC;
 	SQUASHFS_INSWAP_SUPER_BLOCK(&sBlk_4);
-
+        }
     /*
      * CJH: Don't consider it an error if SQUASHFS_MAGIC doesn't match
 	if(sBlk_4.s_magic == SQUASHFS_MAGIC && sBlk_4.s_major == 4 &&

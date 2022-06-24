@@ -7,6 +7,8 @@ This repository is to simplify integration and modifications of squashfs (for [f
 ### Installation
 
 ```bash
+git clone https://github.com/aguytech/squashfs/edit/master/README.md
+cd squashfs
 sh build.sh
 ```
 

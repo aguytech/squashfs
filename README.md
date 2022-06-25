@@ -20,7 +20,7 @@ sh build.sh
 
     Copyright 2002-2014 Phillip Lougher <phillip@lougher.demon.co.uk>
     Released under the GPL licence (version 2 or later).
-    Available in [sourceforge.net](http://sourceforge.net/projects/squashfs/files/)
+    Available in [sourceforge.net](https://sourceforge.net/projects/squashfs/files/squashfs/squashfs4.3/)
 
 1. Patch for ubuntu 20.04
 
